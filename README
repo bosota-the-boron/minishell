@@ -1,0 +1,30 @@
+🖥️ Mini Shell
+
+A simple mini-shell in C 🧑‍💻 that mimics basic terminal functionalities, limited to the use of the stdio.h library. This project allows you to run commands like ls and exit while simulating an interactive shell behavior 🚀.
+⚙️ Features
+
+    💬 Interactive Command Prompt: Users can enter commands just like in a regular terminal.
+    🗂️ Simulates ls command: Displays a list of fictional files when the user types ls.
+    ❌ exit command: Exits the shell when the user types exit.
+    🔒 Limited to stdio.h: No external libraries are used (no string.h, dirent.h, or others).
+
+📂 Available Commands
+
+    ls : Lists fictional files in the directory 🗂️
+    exit : Exits the shell 🚪
+
+🛠️ Compilation
+
+    Clone the repository:
+      git clone https://github.com/username/mini-shell.git
+  Compile the program:
+    gcc -o mini-shell main.c
+  Run the mini-shell:
+    ./mini-shell
+
+🎯 Goal
+
+The aim of this project is to understand the basics of creating a simple shell by manipulating strings and user inputs with basic tools in C 🔧. It's a great project for beginners looking to improve their understanding of C programming and terminal interactions.
+📜 License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
