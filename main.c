@@ -24,7 +24,7 @@ int main() {
         int iexit = 1;
         while (exitCMD[j] != '\0' && str[j] != '\0') {
             if (str[j] != exitCMD[j]) {
-                iexit = 0;  // Si les caractères ne correspondent pas, ce n'est pas "exit"
+                iexit = 0;  // Si les caractères ne correspondent pas, ce n'est pas "exit" m
                 break;
             }
             j++;
