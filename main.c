@@ -29,7 +29,7 @@ int main() {
             }
             j++;
         }
-        if (iexit && str[j] == '\0') {  // Si la commande est exactement "exit"
+        if (iexit && str[j] == '\0'&& exitCMD[j] == '\0') {  // Si la commande est exactement "exit", check str[j] == 0 , exitCMD[j] == 0
             break;  // Quitte le programme
         }
 
