@@ -1,0 +1,18 @@
+Ajout des commande : 
+cd /pwd / cat / nano / vim / cp / mv / rm / touch /head / tail
+grep / chomd / man / find / wc / sort
+
+Tech : 
+autocompletion
+
+
+
+MAJ a faire :
+Faire a pars une fonciton ls
+Mise en place help  + option de commande (ls -la)
+AUTHo
+LS a patch (entrer == ls )
+
+
+Log maj :
+fonction ls faite + strlen
