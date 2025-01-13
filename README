@@ -12,6 +12,7 @@ A simple mini-shell in C 🧑‍💻 that mimics basic terminal functionalities,
 
     ls : Lists fictional files in the directory 🗂️
     exit : Exits the shell 🚪
+    help : not for noob
 
 🛠️ Compilation
 
