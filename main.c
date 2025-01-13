@@ -6,6 +6,7 @@ int main(int argc, char *argv[]) {
     char str[100];  // Tableau pour l'entrée de l'utilisateur
     char exitCMD[] = "exit";  // Commande pour quitter
     char ls[] = "ls";  // Commande pour lister les fichiers
+    char help[] = "help"; // ccmd help == guide
     while (1) {
         printf("user@computer:~$ ");  // Affiche l'invite de commande
         fgets(str, sizeof(str), stdin);  // Lit l'entrée de l'utilisateur
@@ -48,10 +49,19 @@ int main(int argc, char *argv[]) {
         if (ils && str[k] == '\0' && ls[k] == '\0') {  // Si la commande est exactement "ls"
             // Simulation de la commande 'ls' en affichant des fichiers fictifs
             c_ls(argc,argv);
-            c_help(argc,argv);      
-        } else {    
-            printf("Commande inconnue: %s\n", str);  // Commande non reconnue
+        } 
+        int i1 = 0;
+        int ihelp = 1;
+        while(help[i1] != '\0' && str[i1] != '\0'){
+            if(str[i1] != help[i1]){
+                ihelp = 0;
+                break;
+            }
+            i1++;
         }
+        if(ihelp && str[i1] == '\0' && help[i1] == '\0')
+            c_help(argc, argv);
+            c_touch(argc, argv);
     }
 
     return 0;

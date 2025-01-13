@@ -4,5 +4,5 @@
 int my_strlen(char *str); // nombre de char 
 int c_ls(int argc, char *argv[]); // fonction ls
 int c_help(int argc, char *argv[]); // focntion help
-
+int c_touch(int argc, char *argv[]);
 #endif

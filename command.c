@@ -26,13 +26,16 @@ int c_ls(int argc, char *argv[]){
     return 0;
 }
 int c_help(int argc, char *argv[]){
+    printf("pas d'aide pour les heretiques !!!\n");
+    return 0;
+}
+int c_touch(int argc, char *argv[]){
     FILE *fp;
-    fp = popen("help", "r");
+    fp = popen("touch", "w");
     if (fp == NULL){
-        perror("Errur lors de l'execution de la commande");
+        perror("ERROR");
         return 1;
     }
-    fclose(fp);
     return 0;
 }
 
