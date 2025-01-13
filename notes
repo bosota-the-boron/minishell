@@ -1,6 +1,6 @@
 Ajout des commande : 
 cd /pwd / cat / nano / vim / cp / mv / rm / touch /head / tail
-grep / chomd / man / find / wc / sort
+grep / chmod / man / find / wc / sort
 
 Tech : 
 autocompletion
@@ -8,11 +8,11 @@ autocompletion
 
 
 MAJ a faire :
-Faire a pars une fonciton ls
 Mise en place help  + option de commande (ls -la)
 AUTHo
-LS a patch (entrer == ls )
-
+standariser l'entrée user (commande)
+chekc les parametre des commandes
 
 Log maj :
-fonction ls faite + strlen
+13/01/2025 : command.c +  patch up
+12/01/2025 :fonction ls faite + strlen

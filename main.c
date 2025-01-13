@@ -1,50 +1,15 @@
 #include <stdio.h>
+#include "header.h"
 
 
-// fonction strlen : compter le nombre de char - \n
-int my_strlen(char *str){
-    int i = 0; //compteur 
-    while(str[i] != '\0') // tant que le char \0 nest pas i++
-        i++;
-    return i - 1;
-
-}
-int sudo(char *str,char *user, char *password){
-   &user[1035] == "admin";
-   &password[1035] == "toor";
-   int cmpt = 0;
-   int i = 0;
-   printf("User : ");
-   fgets(str, sizeof(str), stdin); 
-   while ( str != user && cmpt < 3  ){
-       printf("User : ");
-       fgets(str, sizeof(str), stdin);
-        i++;
-        cmpt++;
-        printf("%d\n", cmpt);
-        if(cmpt == 3 ){
-            printf("Bad credential\n");
-            return 1;
-        }
-    fgets(str, sizeof(str), stdin);
-        if (str == password){
-            printf("Connecté\n");
-            return 0;
-        }
-      }
-   
-};  
-
-int main() {
+int main(int argc, char *argv[]) {
     char str[100];  // Tableau pour l'entrée de l'utilisateur
     char exitCMD[] = "exit";  // Commande pour quitter
     char ls[] = "ls";  // Commande pour lister les fichiers
-    char user[150], password[150];
-    //sudo(str, user,password); 
     while (1) {
         printf("user@computer:~$ ");  // Affiche l'invite de commande
         fgets(str, sizeof(str), stdin);  // Lit l'entrée de l'utilisateur
-        printf("L'entree a : %d char \n",my_strlen(str));
+        //printf("L'entree a : %d char \n",my_strlen(str));
         //Enlever le '\n' à la fin de la chaîne (si présent)
         int i = 0;
         while (str[i] != '\0') {
@@ -82,18 +47,9 @@ int main() {
 
         if (ils && str[k] == '\0' && ls[k] == '\0') {  // Si la commande est exactement "ls"
             // Simulation de la commande 'ls' en affichant des fichiers fictifs
-            FILE *fp;
-            char path[1035];
-            fp = popen("ls", "r");  // Ouvre un flux pour la commande "ls"
-            if (fp == NULL) {
-                perror("Erreur lors de l'exécution de la commande");
-                return 1;
-            }
-            while (fgets(path, sizeof(path), fp) != NULL) {
-                printf("%s", path);  // Affiche chaque ligne lue
-            }
-            fclose(fp);  // Ferme le flux
-        } else {
+            c_ls(argc,argv);
+            c_help(argc,argv);      
+        } else {    
             printf("Commande inconnue: %s\n", str);  // Commande non reconnue
         }
     }
