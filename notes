@@ -10,7 +10,15 @@ Option de commande (ls -la)
 AUTHo + User lof (changement propt)
 standariser l'entrée user (commande)
 chekc les parametre des commandes
+gestion touch (fichier a entrée)
+parser input pour touch 
+
+strsplit a recrée 
 
 Log maj :
+14/01/2025 ;  touch implementer
 13/01/2025 : command.c + help +  patch up
 12/01/2025 :fonction ls faite + strlen
+
+
+########

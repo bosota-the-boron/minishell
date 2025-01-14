@@ -4,12 +4,11 @@
 
 
 // fonction strlen : compter le nombre de char - \n
-int my_strlen(char *str){
+int c_strlen(char *str){
     int i = 0; //compteur 
     while(str[i] != '\0') // tant que le char \0 nest pas i++
         i++;
-    return i - 1;
-
+    return i ;
 }
 int c_ls(int argc, char *argv[]){
     FILE *fp;
@@ -29,13 +28,22 @@ int c_help(int argc, char *argv[]){
     printf("pas d'aide pour les heretiques !!!\n");
     return 0;
 }
-int c_touch(int argc, char *argv[]){
+int c_touch(char *filename){    
     FILE *fp;
-    fp = popen("touch", "w");
+
+    fp = fopen(filename, "w");
     if (fp == NULL){
         perror("ERROR");
         return 1;
     }
+    fprintf( fp ,"man" );
+    
+    fclose(fp);
     return 0;
 }
 
+//chaque espace == nouvelle ligne
+int c_strplit(){ 
+
+
+}

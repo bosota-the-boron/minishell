@@ -1,16 +1,21 @@
 #include <stdio.h>
-#include "header.h"
+#include "header.h" char *filename = str + i2 + 1;  
 
 
 int main(int argc, char *argv[]) {
     char str[100];  // Tableau pour l'entrée de l'utilisateur
+    
+    //liste comand
     char exitCMD[] = "exit";  // Commande pour quitter
     char ls[] = "ls";  // Commande pour lister les fichiers
     char help[] = "help"; // ccmd help == guide
+    char touch[] = "touch";
+//    char *argv2[];
+
     while (1) {
         printf("user@computer:~$ ");  // Affiche l'invite de commande
         fgets(str, sizeof(str), stdin);  // Lit l'entrée de l'utilisateur
-        //printf("L'entree a : %d char \n",my_strlen(str));
+       printf("L'entree a : %d char \n",c_strlen(str));
         //Enlever le '\n' à la fin de la chaîne (si présent)
         int i = 0;
         while (str[i] != '\0') {
@@ -61,9 +66,24 @@ int main(int argc, char *argv[]) {
         }
         if(ihelp && str[i1] == '\0' && help[i1] == '\0')
             c_help(argc, argv);
-            c_touch(argc, argv);
+       
+        int i2 = 0;
+        int itouch = 1;
+        while(touch[i2] != '\0' && str[i2] != ' '){
+            if(str[i2] != touch[i2]){
+                itouch = 0;
+                break;
+            }
+            i2++;
+        }
+        printf("test içi : '%s' |\n",str);    
+        if(itouch && str[i2] == ' ' && touch[i2] == '\0'){
+            char *filename = str + i2 + 1; //salope
+            c_touch(filename);
+        }
+        else
+            printf("test içi hors condition: '%d' |\n",argc);
+
     }
-
     return 0;
-}
-
+}  
