@@ -3,6 +3,7 @@
 
 
 
+/*----------------------C----------------------------*/
 // fonction strlen : compter le nombre de char - \n
 int c_strlen(char *str){
     int i = 0; //compteur 
@@ -10,6 +11,21 @@ int c_strlen(char *str){
         i++;
     return i ;
 }
+// focntion pouyr armoniser les condition de main
+int compare_comand(const char *input, const char *cmd){
+    int i = 0;
+    while(cmd[i] != '\0' && input[i] != '\0'){
+        if(input[i] != cmd[i]){
+            return 0; // les commande ne correspondent pas
+        }
+        i++;
+    }
+    return cmd[i] == '\0' && input[i] == '\0'; 
+}
+
+
+/*---------------------SHELL------------------*/
+
 int c_ls(int argc, char *argv[]){
     FILE *fp;
     char path[1035];
@@ -42,8 +58,13 @@ int c_touch(char *filename){
     return 0;
 }
 
+int c_exit(){
+    return 1;
+}
+
+
 //chaque espace == nouvelle ligne
 int c_strplit(){ 
 
-
+    return 0;
 }

@@ -5,4 +5,9 @@ int c_strlen(char *str); // nombre de char
 int c_ls(int argc, char *argv[]); // fonction ls
 int c_help(int argc, char *argv[]); // focntion help
 int c_touch(char *filename);
+int compare_comand(const char *input, const char *cmd);
+int c_exit();
+
+
+
 #endif
