@@ -46,22 +46,23 @@ int c_help(int argc, char *argv[]){
 }
 int c_touch(char *filename){    
     FILE *fp;
-
-    fp = fopen(filename, "w");
-    if (fp == NULL){
-        perror("ERROR");
+    if(filename == NULL || *filename == '\0'){
+        printf("ERREUR NOM DU FICHIER VIDE\n");
         return 1;
     }
-    fprintf( fp ,"man" );
-    
+    fp = fopen(filename, "w");
+    if (fp == NULL){
+        perror("ERROR\n");
+        return 1;
+    }
     fclose(fp);
+    printf("ficher crée avec succes\n");
     return 0;
 }
 
 int c_exit(){
     return 1;
 }
-
 
 //chaque espace == nouvelle ligne
 int c_strplit(){ 
