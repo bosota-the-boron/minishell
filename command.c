@@ -24,6 +24,40 @@ int compare_comand(const char *input, const char *cmd){
 }
 
 
+int c_HasSpace(char *str){ // = a espace 
+    for(size_t i = 0; *(str + i) != '\0'; i++){ // *(str + i) == str[i]
+        if(*(str + i) == ' ')
+            return 1;
+    }
+    return 0;
+}
+
+void c_StockStr(char *str, char *str2){ // stpck apres espace > str2
+    int count = 0, found = 0;
+    
+    for(size_t i = 0; *(str + i) != '\0'; i++){
+        if (found){
+            *(str2 + count) = *(str +i);
+            count++;
+        }
+        if (*(str + i ) == ' ')
+            found = 1;
+
+    }
+}    
+
+int c_include(char* str,char* str2 ){ // check les mort dans str2 > str
+    for(size_t i = 0; *(str + i) != '\0'; i++){
+        if(i >= c_strlen(str2))
+            break;
+        if(*(str + i ) != *(str2 + i))
+            return 0;
+     }
+    return 1;
+}
+        
+    
+
 /*---------------------SHELL------------------*/
 
 int c_ls(int argc, char *argv[]){

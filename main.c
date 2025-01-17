@@ -15,11 +15,12 @@ int main(int argc, char *argv[]) {
     char help[] = "help"; // ccmd help == guide
     char touch[] = "touch";
 //    char *argv2[];
-
+ 
     while (1) {
         printf("user@computer:~$ ");  // Affiche l'invite de commande
         fgets(str, sizeof(str), stdin);  // Lit l'entrée de l'utilisateur
         //Enlever le '\n' à la fin de la chaîne (si présent)
+        
         int i = 0;
         while (str[i] != '\0') {
             if (str[i] == '\n') {
@@ -47,9 +48,9 @@ int main(int argc, char *argv[]) {
             c_help(argc, argv);
             continue;
         }
-        if(compare_comand(str, touch)){                                                                                              
-            c_space(str, str1, str2);
-             char *filename =  str2 + 1; //salope
+        if(c_include(str, touch)){                                                                                              
+             c_StockStr(str, str2);
+             char *filename =  str2;
              c_touch(filename);
              
         }

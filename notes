@@ -1,6 +1,16 @@
 Ajout des commande : 
-cd /pwd / cat / nano / vim / cp / mv / rm /head / tail
-grep / chmod / man / find / wc / sort
+
+pwd
+cat/man
+head
+rm
+cp/mv
+find
+chmod
+tail
+cd/vim
+wc/sort
+grep
 
 Tech : 
 autocompletion
