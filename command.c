@@ -43,7 +43,7 @@ int c_ls(int argc, char *argv[]){
 int c_help(int argc, char *argv[]){
     printf("pas d'aide pour les heretiques !!!\n");
     return 0;
-}
+}                                      
 int c_touch(char *filename){    
     FILE *fp;
     if(filename == NULL || *filename == '\0'){

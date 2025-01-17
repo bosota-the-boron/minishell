@@ -3,32 +3,12 @@
 
 #define MAX_CMD_LENGTH 100
 
+
 int main(int argc, char *argv[]) {
     char str[MAX_CMD_LENGTH];  // Tableau pour l'entrée de l'utilisateur
+    char str1[MAX_CMD_LENGTH];
     char str2[MAX_CMD_LENGTH];
 
-    void c_space(char *str, char *str2) {
-    int i = 0, j = 0;
-    // On cherche le premier espace dans str
-        while (str[i] != '\0') {
-            if (str[i] == ' ') {
-                i++; // Passer l'espace
-                break;
-            }
-        i++;
-        }
-    
-    
-        // Si un espace a été trouvé, on copie le reste dans str2
-        while (str[i] != '\0') {
-            str2[j] = str[i];
-            i++;
-            j++;
-        }
-    
-    // Ajouter un caractère nul à la fin de str2
-        str2[j] = '\0';
-    }
     //liste comand
     char exitCMD[] = "exit";  // Commande pour quitter
     char ls[] = "ls";  // Commande pour lister les fichiers
@@ -47,6 +27,7 @@ int main(int argc, char *argv[]) {
                 break;
             }
             i++;
+             
    
         }
 
@@ -66,9 +47,9 @@ int main(int argc, char *argv[]) {
             c_help(argc, argv);
             continue;
         }
-        if(compare_comand(str, touch)){                                                          
-             c_space(str, str2);                                        
-             char *filename =  str + c_strlen(str2) + 1; //salope
+        if(compare_comand(str, touch)){                                                                                              
+            c_space(str, str1, str2);
+             char *filename =  str2 + 1; //salope
              c_touch(filename);
              
         }

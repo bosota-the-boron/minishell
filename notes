@@ -16,6 +16,7 @@ parser input pour touch
 strsplit a recrée 
 
 Log maj :
+15/01/2025 : armonisation du code
 14/01/2025 ;  touch implementer
 13/01/2025 : command.c + help +  patch up
 12/01/2025 :fonction ls faite + strlen
