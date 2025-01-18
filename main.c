@@ -14,7 +14,8 @@ int main(int argc, char *argv[]) {
     char ls[] = "ls";  // Commande pour lister les fichiers
     char help[] = "help"; // ccmd help == guide
     char touch[] = "touch";
-//    char *argv2[];
+    char pwd[] = "pwd";
+    char cat[] = "cat";
  
     while (1) {
         printf("user@computer:~$ ");  // Affiche l'invite de commande
@@ -42,19 +43,26 @@ int main(int argc, char *argv[]) {
             // Simulation de la commande 'ls' en affichant des fichiers fictifs
             c_ls(argc,argv);
             continue;
-        } 
+        }
+
+        if (compare_comand(str, pwd)){
+            c_pwd(argc, argv);
+            continue;
+        }
 
         if(compare_comand(str, help)){
             c_help(argc, argv);
             continue;
         }
-        if(c_include(str, touch)){                                                                                              
-             c_StockStr(str, str2);
-             char *filename =  str2;
-             c_touch(filename);
-             
+        if(c_include(str, touch)){                                                                                                   c_StockStr(str, str2);
+             char* filename =  str2;
+             c_touch(filename);    
         }
-        
+        if(c_include(str, cat)){
+            c_StockStr(str, str2);
+            char* filename = str2;
+            c_cat(filename);
+        }
         else
             printf("Aucune commande : '%s'\n",str);
     }

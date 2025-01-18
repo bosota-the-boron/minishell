@@ -93,13 +93,40 @@ int c_touch(char *filename){
     printf("ficher crée avec succes\n");
     return 0;
 }
+int c_cat(char *filename){    
+    FILE *fp;
+    if(filename == NULL || *filename == '\0'){
+        printf("ERREUR NOM DU FICHIER A LIRE VIDE\n");
+        return 1;
+    }
+    fp = fopen(filename, "r");
+    if (fp == NULL){
+        perror("ERROR ");
+        return 1;
+    }
+    fclose(fp);
+    printf("lecture en cour : '%s'\n", filename);
+    return 0;
+}
+
 
 int c_exit(){
     return 1;
 }
 
-//chaque espace == nouvelle ligne
-int c_strplit(){ 
+int c_pwd(int argc, char *argv[]){
+    FILE *fp;
+    char path[1035];
+    fp = popen("pwd", "r");
+    if (fp == NULL){
+           perror("Erreur lors de l'exécution de la commande");
+            return 1;
+    }
 
-    return 0;
+    while (fgets(path, sizeof(path), fp) != NULL) {
+    printf("%s", path);
+    }
+    fclose(fp);
+    return 1;
+
 }
