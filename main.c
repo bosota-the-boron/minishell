@@ -54,14 +54,17 @@ int main(int argc, char *argv[]) {
             c_help(argc, argv);
             continue;
         }
-        if(c_include(str, touch)){                                                                                                   c_StockStr(str, str2);
-             char* filename =  str2;
+        if(c_include(str, touch)){ 
+            c_StockStr(str, str2);
+            char* filename =  str2;
              c_touch(filename);    
+             continue;
         }
         if(c_include(str, cat)){
             c_StockStr(str, str2);
             char* filename = str2;
             c_cat(filename);
+            continue;
         }
         else
             printf("Aucune commande : '%s'\n",str);
