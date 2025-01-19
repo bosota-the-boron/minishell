@@ -11,5 +11,5 @@ int c_exit();
 void c_StockStr(char* str, char* str2);
 int c_include(char* str,char* str2 );
 int c_pwd(int argc, char* argv[]); 
-
+int c_head(char* filename);
 #endif

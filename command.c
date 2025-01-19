@@ -95,6 +95,7 @@ int c_touch(char *filename){
 }
 int c_cat(char *filename){    
     FILE *fp;
+    char line[1035];
     if(filename == NULL || *filename == '\0'){
         printf("ERREUR NOM DU FICHIER A LIRE VIDE\n");
         return 1;
@@ -104,11 +105,33 @@ int c_cat(char *filename){
         perror("ERROR ");
         return 1;
     }
+    while(fgets(line, sizeof(line), fp) != NULL){ // lis chaque ligne
+        printf("%s", line); //les affiches  
+    }
     fclose(fp);
     printf("lecture en cour : '%s'\n", filename);
     return 0;
 }
 
+int c_head(char* filename){
+    FILE *fp;
+    char line[1035];
+    int i = 0;
+    if(filename == NULL || *filename == '\0'){
+        printf("ERREUR NOM DU FICHIER A HEAD VIDE");
+        return 1;
+    }
+    fp = fopen(filename, "r");
+    if(fp == NULL){
+        perror("ERROR");
+        return 1;
+    }
+    while(fgets(line, sizeof(line),fp) != NULL && i < 5){
+        printf("%s", line);
+        i++;
+    }
+
+}
 
 int c_exit(){
     return 1;

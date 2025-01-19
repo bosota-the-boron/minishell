@@ -16,7 +16,11 @@ int main(int argc, char *argv[]) {
     char touch[] = "touch";
     char pwd[] = "pwd";
     char cat[] = "cat";
- 
+    char head[] = "head";
+
+
+
+
     while (1) {
         printf("user@computer:~$ ");  // Affiche l'invite de commande
         fgets(str, sizeof(str), stdin);  // Lit l'entrée de l'utilisateur
@@ -64,6 +68,12 @@ int main(int argc, char *argv[]) {
             c_StockStr(str, str2);
             char* filename = str2;
             c_cat(filename);
+            continue;
+        }
+         if(c_include(str, head)){
+            c_StockStr(str, str2);
+            char* filename = str2;
+            c_head(filename);
             continue;
         }
         else
