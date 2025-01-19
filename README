@@ -11,6 +11,9 @@ A simple mini-shell in C 🧑‍💻 that mimics basic terminal functionalities,
 📂 Available Commands
 
     ls : Lists fictional files in the directory 🗂️
+    touch : create one file
+    cat : print file
+    head : print first line
     exit : Exits the shell 🚪
 
 🛠️ Compilation
@@ -18,7 +21,7 @@ A simple mini-shell in C 🧑‍💻 that mimics basic terminal functionalities,
     Clone the repository:
       git clone https://github.com/username/mini-shell.git
   Compile the program:
-    gcc -o mini-shell main.c
+    gcc -o mini-shell main.c command.c
   Run the mini-shell:
     ./mini-shell
 
