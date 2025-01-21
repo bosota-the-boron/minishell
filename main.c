@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
     char str[MAX_CMD_LENGTH];  // Tableau pour l'entrée de l'utilisateur
     char str1[MAX_CMD_LENGTH];
     char str2[MAX_CMD_LENGTH];
-
+    char str3[MAX_CMD_LENGTH];
     //liste comand
     char exitCMD[] = "exit";  // Commande pour quitter
     char ls[] = "ls";  // Commande pour lister les fichiers
@@ -17,7 +17,8 @@ int main(int argc, char *argv[]) {
     char pwd[] = "pwd";
     char cat[] = "cat";
     char head[] = "head";
-
+    char rm[] = "rm";
+    char cp[] = "cp";
 
 
 
@@ -64,6 +65,13 @@ int main(int argc, char *argv[]) {
              c_touch(filename);    
              continue;
         }
+        if(c_include(str, rm)){
+            c_StockStr(str,str2);
+            char* filename = str2;
+            remove(filename);
+            continue;
+        }
+
         if(c_include(str, cat)){
             c_StockStr(str, str2);
             char* filename = str2;
@@ -76,6 +84,14 @@ int main(int argc, char *argv[]) {
             c_head(filename);
             continue;
         }
+         if(c_include(str, cp)){
+            c_StockStr(str, str2);
+            c_StockStr(str2,str3);
+            char* filename = str2;
+            char* filename1 = str3;
+            c_cp(filename,filename1);
+            continue;
+         }
         else
             printf("Aucune commande : '%s'\n",str);
     }

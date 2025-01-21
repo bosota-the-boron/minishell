@@ -93,6 +93,54 @@ int c_touch(char *filename){
     printf("ficher crée avec succes\n");
     return 0;
 }
+int c_cp(char* filename, char* filename1) {    
+    FILE *src, *dest;
+    char buffer[1035];
+
+    if (filename == NULL || *filename == '\0' || filename1 == NULL || *filename1 == '\0') {
+        printf("ERREUR NOM DU FICHIER A COPIER VIDE\n");
+        return 1;
+    }
+
+    src = fopen(filename, "r");
+    if (src == NULL) {
+        perror("ERROR lors de l'ouverture du fichier source");
+        printf("DEBUG '%s' '%s'", filename, filename1);
+        return 1;
+    }
+
+    dest = fopen(filename1, "w");
+    if (dest == NULL) {
+        perror("ERROR lors de l'ouverture du fichier de destination");
+        fclose(src);
+        return 1;
+    }
+
+    // Copie du contenu
+    while (fgets(buffer, sizeof(buffer), src) != NULL) {
+        fputs(buffer, dest);
+    }
+
+    fclose(src);
+    fclose(dest);
+    printf("fichier copié avec succès\n");
+    return 0;
+}
+int c_rm(char *filename){
+	  FILE *fp;
+    if(filename == NULL || *filename == '\0'){
+        printf("ERREUR NOM DU FICHIER VIDE\n");
+        return 1;
+    }
+    fp = fopen(filename, "w");
+    if (fp == NULL){
+        perror("ERROR\n");
+        return 1;
+    }
+    fclose(fp);
+    printf("ficher supprimer avec succes\n");
+    return 0;
+}
 int c_cat(char *filename){    
     FILE *fp;
     char line[1035];
