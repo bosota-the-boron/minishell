@@ -32,18 +32,31 @@ int c_HasSpace(char *str){ // = a espace
     return 0;
 }
 
-void c_StockStr(char *str, char *str2){ // stpck apres espace > str2
-    int count = 0, found = 0;
+void c_StockStr(char* str, char* str2, char* str3){ // stpck apres espace > str2
+    int count = 0, found = 0, count1 = 0, found1 = 0;
     
     for(size_t i = 0; *(str + i) != '\0'; i++){
-        if (found){
-            *(str2 + count) = *(str +i);
+        if (found || *(str +i)){
+            *(str2 + count) = *(str +i); // str2[count] = str[i]
+            printf("str2 '%s'\n",str2);
             count++;
         }
-        if (*(str + i ) == ' ')
+        if (*(str + i ) == ' ' && !found)
             found = 1;
-
-    }
+            //printf("ESPACE ESPACE !!! \n");
+    } 
+    *(str2 + count) = '\0';
+     
+    for(size_t i = 0; *(str2 + i) != '\0'; i++){                               
+         if (found1){                                                           
+             *(str3 + count1) = *(str2 +i);                                      
+              count1++;
+              printf("str3 '%s'\n",str3);
+         }                                                                     
+         if (*(str2 + i ) == ' ')                                             
+             found1 = 1;                                                      
+      }
+        *(str3 + count) = '\0'; 
 }    
 
 int c_include(char* str,char* str2 ){ // check les mort dans str2 > str
@@ -56,7 +69,7 @@ int c_include(char* str,char* str2 ){ // check les mort dans str2 > str
     return 1;
 }
         
-    
+
 
 /*---------------------SHELL------------------*/
 
@@ -93,37 +106,35 @@ int c_touch(char *filename){
     printf("ficher crée avec succes\n");
     return 0;
 }
-int c_cp(char* filename, char* filename1) {    
-    FILE *src, *dest;
-    char buffer[1035];
-
-    if (filename == NULL || *filename == '\0' || filename1 == NULL || *filename1 == '\0') {
-        printf("ERREUR NOM DU FICHIER A COPIER VIDE\n");
+          
+int c_cp(char *filename, char *filename1) {
+    // Ouvrir le fichier source en lecture
+    FILE *fp = fopen(filename, "r");
+    if (fp == NULL) {
+        printf("ERREUR : Impossible d'ouvrir le fichier à copier '%s'\n", filename);
         return 1;
     }
 
-    src = fopen(filename, "r");
-    if (src == NULL) {
-        perror("ERROR lors de l'ouverture du fichier source");
-        printf("DEBUG '%s' '%s'", filename, filename1);
+    // Ouvrir le fichier destination en écriture
+    FILE *fp1 = fopen(filename1, "w");
+    if (fp1 == NULL) {
+        printf("ERREUR : Impossible d'ouvrir le fichier de destination '%s'\n", filename1);
+        fclose(fp);  // Fermer le fichier source ouvert
         return 1;
     }
 
-    dest = fopen(filename1, "w");
-    if (dest == NULL) {
-        perror("ERROR lors de l'ouverture du fichier de destination");
-        fclose(src);
-        return 1;
+    // Copier le contenu du fichier source vers le fichier destination
+    char buffer[256];
+    size_t n;
+    while ((n = fread(buffer, 1, sizeof(buffer), fp)) > 0) {
+        fwrite(buffer, 1, n, fp1);
     }
 
-    // Copie du contenu
-    while (fgets(buffer, sizeof(buffer), src) != NULL) {
-        fputs(buffer, dest);
-    }
+    // Fermer les fichiers
+    fclose(fp);
+    fclose(fp1);
 
-    fclose(src);
-    fclose(dest);
-    printf("fichier copié avec succès\n");
+    printf("Le fichier '%s' a été copié vers '%s'.\n", filename, filename1);
     return 0;
 }
 int c_rm(char *filename){

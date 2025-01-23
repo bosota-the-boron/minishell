@@ -60,36 +60,35 @@ int main(int argc, char *argv[]) {
             continue;
         }
         if(c_include(str, touch)){ 
-            c_StockStr(str, str2);
+            c_StockStr(str, str2,str3);
             char* filename =  str2;
              c_touch(filename);    
              continue;
         }
         if(c_include(str, rm)){
-            c_StockStr(str,str2);
+            c_StockStr(str,str2,str3);
             char* filename = str2;
             remove(filename);
             continue;
         }
 
         if(c_include(str, cat)){
-            c_StockStr(str, str2);
+            c_StockStr(str, str2,str3);
             char* filename = str2;
             c_cat(filename);
             continue;
         }
          if(c_include(str, head)){
-            c_StockStr(str, str2);
+            c_StockStr(str, str2,str3);
             char* filename = str2;
             c_head(filename);
             continue;
         }
          if(c_include(str, cp)){
-            c_StockStr(str, str2);
-            c_StockStr(str2,str3);
+            c_StockStr(str, str2, str3);;
             char* filename = str2;
-            char* filename1 = str3;
-            c_cp(filename,filename1);
+            char* filename1= str3;
+            c_cp(filename, filename1);
             continue;
          }
         else

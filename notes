@@ -1,7 +1,8 @@
 Ajout des commande : 
 
-
-cp/mv
+cp  
+    pb : "notes path" != "notes" "path" 
+mv
 find
 chmod
 tail
