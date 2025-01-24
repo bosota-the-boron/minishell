@@ -14,4 +14,5 @@ void c_StockStr(char* str, char* str2, char* str3);
 int c_include(char* str,char* str2);
 int c_pwd(int argc, char* argv[]); 
 int c_head(char* filename);
+int split(char* input, char* arg1, char* arg2);
 #endif

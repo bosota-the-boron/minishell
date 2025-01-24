@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include "header.h"
 
-
+// token split fonction
+#define TOKEN_CMD 0
+#define TOKEN_ARG1 1
+#define TOKEN_ARG2 2
 
 /*----------------------C----------------------------*/
 // fonction strlen : compter le nombre de char - \n
@@ -32,36 +35,54 @@ int c_HasSpace(char *str){ // = a espace
     return 0;
 }
 
-void c_StockStr(char* str, char* str2, char* str3){ // stpck apres espace > str2
-    int count = 0, found = 0, count1 = 0, found1 = 0;
-    
-    for(size_t i = 0; *(str + i) != '\0'; i++){
-        if (found || *(str +i)){
-            *(str2 + count) = *(str +i); // str2[count] = str[i]
-            printf("str2 '%s'\n",str2);
-            count++;
-        }
-        if (*(str + i ) == ' ' && !found)
-            found = 1;
-            //printf("ESPACE ESPACE !!! \n");
-    } 
-    *(str2 + count) = '\0';
-     
-    for(size_t i = 0; *(str2 + i) != '\0'; i++){                               
-         if (found1){                                                           
-             *(str3 + count1) = *(str2 +i);                                      
-              count1++;
-              printf("str3 '%s'\n",str3);
-         }                                                                     
-         if (*(str2 + i ) == ' ')                                             
-             found1 = 1;                                                      
-      }
-        *(str3 + count) = '\0'; 
-}    
+int split(char* user_input, char* arg1, char* arg2){
+
+    int args_max = 2; // nb max args
+         
+    int token = 0; // referenc token
+    int token_cmd = TOKEN_CMD; // init token (case) == cp
+    int token_arg1 = TOKEN_ARG1; // == nates
+    int token_arg2 = TOKEN_ARG2; // path
+
+    int cursor = 0; // curseur char 
+    int cursor_token = 0;
+
+    for(; user_input[cursor] != '\0'; cursor++ ){
+        if(*(user_input + cursor) == ' ' || *(user_input + cursor) == '\n' ||*(user_input + cursor) == '\r' ){ // verification changement mots
+            switch(token){ // delimitation arg
+                case 1:
+                    *(arg1 + cursor_token) = '\0';
+                    break;
+                case 2:
+                    *(arg2 + cursor_token) = '\0';
+                    break;
+            }
+            token++;
+            cursor_token = 0;
+          }
+        else{
+            switch (token){ // lecture + affectation
+                case 0:
+                    break;
+                case 1:
+                    *(arg1 + cursor_token) = *(user_input + cursor);
+                    break;
+                case 2:
+                     *(arg2 + cursor_token)= *(user_input + cursor);
+                    break;
+                default:
+                    printf("trop d'arguments\n"); 
+            }
+            cursor_token++;
+        }            
+     }
+    return token;
+};
 
 int c_include(char* str,char* str2 ){ // check les mort dans str2 > str
+    int strlen_temp = c_strlen(str2);
     for(size_t i = 0; *(str + i) != '\0'; i++){
-        if(i >= c_strlen(str2))
+        if(i >= strlen_temp)
             break;
         if(*(str + i ) != *(str2 + i))
             return 0;

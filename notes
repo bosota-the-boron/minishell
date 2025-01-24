@@ -17,6 +17,7 @@ MAJ a faire :
 Option de commande (ls -la)
 AUTHo + User lof (changement propt)
 ouverture   file cat != lecture
+rename total 
 
 strsplit a recrée 
 
@@ -29,4 +30,14 @@ Log maj :
 12/01/2025 :fonction ls faite + strlen
 
 
-########
+#######
+
+"touch -a test.txt"
+"touch" "test"
+"-a test"
+
+cp notes /home/bosota
+
+
+
+/ str2    str3
