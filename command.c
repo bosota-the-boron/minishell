@@ -158,6 +158,36 @@ int c_cp(char *filename, char *filename1) {
     printf("Le fichier '%s' a été copié vers '%s'.\n", filename, filename1);
     return 0;
 }
+int c_mv(char *filename, char *filename1) {
+    // Ouvrir le fichier source en lecture
+    FILE *fp = fopen(filename, "r");
+    if (fp == NULL) {
+        printf("ERREUR : Impossible de trouver le chemin d'oringine '%s'\n", filename);
+        return 1;
+    }
+
+    // Ouvrir le fichier destination en écriture
+    FILE *fp1 = fopen(filename1, "a");
+    if (fp1 == NULL) {
+        printf("ERREUR : Impossible de trouver le chemin de destination '%s'\n", filename1);
+        fclose(fp);  // Fermer le fichier source ouvert
+        return 1;
+    }
+
+    // Copier le contenu du fichier source vers le fichier destination
+    char buffer[1024];
+    size_t n;
+    while ((n = fread(buffer, 1, sizeof(buffer), fp)) > 0) {
+        fwrite(buffer, 1, n, fp1);
+    }
+
+    // Fermer les fichiers
+    fclose(fp);
+    fclose(fp1);
+    remove(filename);
+    printf("Le fichier '%s' a été deplacé vers '%s'.\n", filename, filename1);
+    return 0;
+}
 int c_rm(char *filename){
 	  FILE *fp;
     if(filename == NULL || *filename == '\0'){

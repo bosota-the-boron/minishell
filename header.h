@@ -8,6 +8,7 @@ int c_touch(char* filename);
 int c_rm(char *filename);
 int c_cat(char* filename);
 int c_cp(char* filename, char* filename1);
+int c_mv(char* filename, char* filename1);
 int compare_comand(const char* input, const char* cmd);
 int c_exit();
 void c_StockStr(char* str, char* str2, char* str3);

@@ -1,6 +1,6 @@
 Ajout des commande : 
  
-mv
+
 find
 chmod
 tail
@@ -16,7 +16,7 @@ Option de commande (ls -la)
 AUTHo + User lof (changement propt)
 ouverture   file cat != lecture
 rename total 
-
+patch mv pour que si pas de fichier crée prendre ancien nom
 
 strsplit a recrée 
 

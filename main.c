@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
     char head[] = "head";
     char rm[] = "rm";
     char cp[] = "cp";
-
+    char mv[] = "mv";
     
 
     while (1) {
@@ -82,7 +82,10 @@ int main(int argc, char *argv[]) {
             split(user_inuput, arg1, arg2);;
             c_cp(arg1,arg2);
             continue;
-         }
+         }if(c_include(user_inuput, mv)){
+            split(user_inuput, arg1, arg2);
+            c_mv(arg1, arg2);
+        }
         else
             printf("Aucune commande : '%s'\n",user_inuput);
     }
