@@ -94,6 +94,33 @@ int c_include(char* str,char* str2 ){ // check les mort dans str2 > str
 
 /*---------------------SHELL------------------*/
 
+int c_find(char* filename, char* filename1){
+        /*chercher dans path fichier donné
+         * besoin path
+         * type de recherche
+         * controle de path 
+         * parcoueie lzs fichier
+         * */
+    FILE *fp;
+    fp = fopen(filename, "r");
+    if(fp == NULL){
+        perror("Ficher");
+        return 1;
+    }
+    FILE *fp1 = fopen(filename1, "r");
+    if(fp1 == NULL){
+        perror("file");
+        fclose(fp);
+        return 1;
+    }
+    char pwd;
+    pwd = c_pwd(filename1);
+    printf("Fichier trouvé : %s\nAdresse : %d", filename1, pwd);
+    fclose(fp);
+    fclose(fp1);
+    return 0;
+}
+
 int c_ls(char* filename, char* filename1){
     FILE *fp;
     char path[1035];
@@ -240,14 +267,14 @@ int c_head(char* filename){
         printf("%s", line);
         i++;
     }
-
+    return 0;
 }
 
 int c_exit(){
     return 1;
 }
 
-int c_pwd(int argc, char *argv[]){
+int c_pwd(char* filename){
     FILE *fp;
     char path[1035];
     fp = popen("pwd", "r");

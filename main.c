@@ -19,6 +19,7 @@ int main(int argc, char *argv[]) {
     char rm[] = "rm";
     char cp[] = "cp";
     char mv[] = "mv";
+    char find[] = "find";
     
 
     while (1) {
@@ -48,8 +49,9 @@ int main(int argc, char *argv[]) {
             continue;
         }
 
-        if (compare_comand(user_inuput, pwd)){
-            c_pwd(argc, argv);
+        if (c_include(user_inuput, pwd)){
+            split(user_inuput, arg1, arg2);
+            c_pwd(arg1);
             continue;
         }
 
@@ -85,6 +87,9 @@ int main(int argc, char *argv[]) {
          }if(c_include(user_inuput, mv)){
             split(user_inuput, arg1, arg2);
             c_mv(arg1, arg2);
+        }if(c_include(user_inuput, find)){
+            split(user_inuput, arg1, arg2);
+            c_find(arg1, arg2);
         }
         else
             printf("Aucune commande : '%s'\n",user_inuput);
