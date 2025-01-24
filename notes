@@ -1,7 +1,5 @@
 Ajout des commande : 
-
-cp  
-    pb : "notes path" != "notes" "path" 
+ 
 mv
 find
 chmod
@@ -10,7 +8,7 @@ cd/vim
 wc/sort
 grep
 
-Tech : 
+Tech : **the_bosota*** s
 autocompletion
 
 MAJ a faire :
@@ -19,25 +17,17 @@ AUTHo + User lof (changement propt)
 ouverture   file cat != lecture
 rename total 
 
+
 strsplit a recrée 
 
 Log maj :
-17/01/2024 : ajout v1 pwd(non dynamique)
-16/01/2024 : ajout touch
+24/01/2025 : ajout split + patch name
+17/01/2025 : ajout v1 pwd(non dynamique)
+16/01/2025 : ajout touch
 15/01/2025 : armonisation du code
 14/01/2025 ;  touch implementer
 13/01/2025 : command.c + help +  patch up
 12/01/2025 :fonction ls faite + strlen
 
 
-#######
 
-"touch -a test.txt"
-"touch" "test"
-"-a test"
-
-cp notes /home/bosota
-
-
-
-/ str2    str3

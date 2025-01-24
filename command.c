@@ -94,10 +94,10 @@ int c_include(char* str,char* str2 ){ // check les mort dans str2 > str
 
 /*---------------------SHELL------------------*/
 
-int c_ls(int argc, char *argv[]){
+int c_ls(char* filename, char* filename1){
     FILE *fp;
     char path[1035];
-    fp = popen("ls -la", "r");  // Ouvre un flux pour la commande "ls"
+    fp = popen("colorls -la", "r");  // Ouvre un flux pour la commande "ls"
     if (fp == NULL) {
         perror("Erreur lors de l'exécution de la commande");
         return 1;
@@ -137,7 +137,7 @@ int c_cp(char *filename, char *filename1) {
     }
 
     // Ouvrir le fichier destination en écriture
-    FILE *fp1 = fopen(filename1, "w");
+    FILE *fp1 = fopen(filename1, "a");
     if (fp1 == NULL) {
         printf("ERREUR : Impossible d'ouvrir le fichier de destination '%s'\n", filename1);
         fclose(fp);  // Fermer le fichier source ouvert

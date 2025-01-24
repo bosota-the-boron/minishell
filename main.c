@@ -26,7 +26,6 @@ int main(int argc, char *argv[]) {
         fgets(user_inuput, sizeof(user_inuput), stdin);  // Lit l'entrée de l'utilisateur
         //Enlever le '\n' à la fin de la chaîne (si présent)
         split(user_inuput, arg1, arg2);
-        printf("input : %s\narg1 : %s\narg2 :%s\n", user_inuput, arg1, arg2);
     
         int i = 0;
       while (user_inuput[i] != '\0') {
@@ -42,9 +41,10 @@ int main(int argc, char *argv[]) {
             break;  // Quitte le programme
         }
 
-        if (compare_comand(user_inuput, ls)) {  // Si la commande est exactement "ls"
+        if (c_include(user_inuput, ls)) {  // Si la commande est exactement "ls"
             // Simulation de la commande 'ls' en affichant des fichiers fictifs
-            c_ls(argc,argv);
+            split(user_inuput, arg1, arg2);
+            c_ls(arg1,arg2);
             continue;
         }
 
@@ -59,34 +59,28 @@ int main(int argc, char *argv[]) {
         }
         if(c_include(user_inuput, touch)){ 
             split(user_inuput, arg1,arg2);
-            char* filename =  arg1;
-             c_touch(filename);    
+             c_touch(arg1);    
              continue;
         }
         if(c_include(user_inuput, rm)){
             split(user_inuput,arg1,arg2);
-            char* filename = arg1;
-            remove(filename);
+            remove(arg1);
             continue;
         }
 
         if(c_include(user_inuput, cat)){
             split(user_inuput, arg1,arg2);
-            char* filename = arg1;
-            c_cat(filename);
+            c_cat(arg1);
             continue;
         }
          if(c_include(user_inuput, head)){
             split(user_inuput, arg1,arg2);
-            char* filename = arg1;
-            c_head(filename);
+            c_head(arg1);
             continue;
         }
          if(c_include(user_inuput, cp)){
             split(user_inuput, arg1, arg2);;
-            char* filename = arg1;
-            char* filename1= arg2;
-            c_cp(filename, filename1);
+            c_cp(arg1,arg2);
             continue;
          }
         else
