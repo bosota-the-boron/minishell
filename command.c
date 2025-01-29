@@ -94,13 +94,7 @@ int c_include(char* str,char* str2 ){ // check les mort dans str2 > str
 
 /*---------------------SHELL------------------*/
 
-int c_find(char* filename, char* filename1){
-        /*chercher dans path fichier donné
-         * besoin path
-         * type de recherche
-         * controle de path 
-         * parcoueie lzs fichier
-         * */
+int c_find(char* filename, char* filename1){ 
     FILE *fp;
     fp = fopen(filename, "r");
     if(fp == NULL){
@@ -121,6 +115,15 @@ int c_find(char* filename, char* filename1){
     return 0;
 }
 
+int c_clear(char* filename){
+    FILE *fp;
+    fp = fopen(filename, "r");
+    if(fp == NULL){
+        perror("");
+        return 1;
+    }
+    return 0;
+}
 int c_ls(char* filename, char* filename1){
     FILE *fp;
     char path[1035];

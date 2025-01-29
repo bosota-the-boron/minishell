@@ -17,6 +17,7 @@ int main(int argc, char *argv[]) {
     char cat[] = "cat";
     char head[] = "head";
     char rm[] = "rm";
+    char clear[] = "clear";
     char cp[] = "cp";
     char mv[] = "mv";
     char find[] = "find";
@@ -90,6 +91,9 @@ int main(int argc, char *argv[]) {
         }if(c_include(user_inuput, find)){
             split(user_inuput, arg1, arg2);
             c_find(arg1, arg2);
+        }if(c_include(user_inuput, clear)){
+            split(user_inuput, arg1, arg2);
+            c_clear(arg1);
         }
         else
             printf("Aucune commande : '%s'\n",user_inuput);

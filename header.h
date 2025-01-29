@@ -6,6 +6,7 @@ int c_ls(char* filename, char* filename1); // fonction ls
 int c_help(int argc, char* argv[]); // focntion help
 int c_touch(char* filename);
 int c_rm(char *filename);
+int c_clear(char* filename);
 int c_cat(char* filename);
 int c_cp(char* filename, char* filename1);
 int c_mv(char* filename, char* filename1);

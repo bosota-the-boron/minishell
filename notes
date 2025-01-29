@@ -1,18 +1,20 @@
 Ajout des commande : 
- 
 
-find
+clear
+    leave while > relancer sans quitter programe
+        trouver un concept de reflexion 
 chmod
+tree
 tail
 cd/vim
 wc/sort
 grep
 
-Tech : **the_bosota*** s
 autocompletion
+logs
 
 MAJ a faire :
-Option de commande (ls -la)
+Option de commande (ls -la) / add colorls
 AUTHo + User lof (changement propt)
 ouverture   file cat != lecture
 rename total 
