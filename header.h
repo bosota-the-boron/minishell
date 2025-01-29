@@ -17,5 +17,8 @@ int c_include(char* str,char* str2);
 int c_pwd(char* filename1); 
 int c_head(char* filename);
 int c_find(char* filename, char* filename1);
+int c_chmod(char* perms, char* path);
+
 int split(char* input, char* arg1, char* arg2);
+
 #endif

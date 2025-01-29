@@ -1,9 +1,15 @@
+Update : 
+CHanger tech pour arg / pb compa fopen
+
+
+
 Ajout des commande : 
 
 clear
     leave while > relancer sans quitter programe
         trouver un concept de reflexion 
 chmod
+    check resonna ce avec le PID
 tree
 tail
 cd/vim

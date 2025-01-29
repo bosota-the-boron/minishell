@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
     char cp[] = "cp";
     char mv[] = "mv";
     char find[] = "find";
-    
+    char chmod[] = "chmod";
 
     while (1) {
       printf("user@computer:~$ ");  // Affiche l'invite de commande
@@ -94,6 +94,9 @@ int main(int argc, char *argv[]) {
         }if(c_include(user_inuput, clear)){
             split(user_inuput, arg1, arg2);
             c_clear(arg1);
+        }if(c_include(user_inuput, chmod)){
+            split(user_inuput, arg1, arg2);
+            c_chmod(arg1, arg2);
         }
         else
             printf("Aucune commande : '%s'\n",user_inuput);

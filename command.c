@@ -272,6 +272,28 @@ int c_head(char* filename){
     }
     return 0;
 }
+int c_chmod(char *perms, char* path){
+    FILE* fp;
+    fp = popen(perms, "w");
+    if(perms ==  NULL){
+        printf("Erreur de permissions \n");
+        return 1;
+    }
+    FILE* fp1 = fopen(path, "r");
+    if(path == NULL){
+        printf("Erreur path\n");
+        fclose(fp);
+        return 1;
+    }
+    printf("Permission acces : '%s'\n", perms);
+    perror(perms);
+    printf("Patch : '%s'\n", path);
+    perror(path);
+    fclose(fp);
+    fclose(fp1);
+    return 0;
+}
+
 
 int c_exit(){
     return 1;
